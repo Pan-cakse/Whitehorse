@@ -1,0 +1,43 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: VidTu <60929459+VidTu@users.noreply.github.com>
+Date: Mon, 1 Aug 2022 08:48:35 +0300
+Subject: [PATCH] Simplify version fetcher
+
+
+diff --git a/src/main/java/com/github/brominemc/whitehorse/WhitehorseVersionFetcher.java b/src/main/java/com/github/brominemc/whitehorse/WhitehorseVersionFetcher.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..9e4fafa5e4df2c9629b691a0c70371c4608bfe30
+--- /dev/null
++++ b/src/main/java/com/github/brominemc/whitehorse/WhitehorseVersionFetcher.java
+@@ -0,0 +1,18 @@
++package com.github.brominemc.whitehorse;
++
++import com.destroystokyo.paper.util.VersionFetcher;
++import net.kyori.adventure.text.Component;
++import net.kyori.adventure.text.format.NamedTextColor;
++import org.jetbrains.annotations.NotNull;
++
++public class WhitehorseVersionFetcher implements VersionFetcher {
++    @Override
++    public long getCacheTime() {
++        return -1;
++    }
++
++    @Override
++    public @NotNull Component getVersionMessage(@NotNull String serverVersion) {
++        return Component.text("Whitehorse: ").append(Component.text(serverVersion, NamedTextColor.GREEN));
++    }
++}
+diff --git a/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java b/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
+index 8961da579b114cbafb329c00aadf1cf75e70cf97..c4fbae7a28bf9dccab355a7bceb9c8f62cd75cc6 100644
+--- a/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
++++ b/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
+@@ -430,7 +430,7 @@ public final class CraftMagicNumbers implements UnsafeValues {
+ 
+     @Override
+     public com.destroystokyo.paper.util.VersionFetcher getVersionFetcher() {
+-        return new com.destroystokyo.paper.PaperVersionFetcher();
++        return new com.github.brominemc.whitehorse.WhitehorseVersionFetcher(); // Whitehorse - simple version fetcher
+     }
+ 
+     @Override

@@ -1,0 +1,36 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: VidTu <60929459+VidTu@users.noreply.github.com>
+Date: Mon, 1 Aug 2022 08:51:54 +0300
+Subject: [PATCH] Stackable items
+
+
+diff --git a/src/main/java/net/minecraft/world/item/ItemStack.java b/src/main/java/net/minecraft/world/item/ItemStack.java
+index c18a0bc94d0210396046f4475e49a739088593f3..d7b5f46dfc10a71a7f2ad36e960d4e214e2a7625 100644
+--- a/src/main/java/net/minecraft/world/item/ItemStack.java
++++ b/src/main/java/net/minecraft/world/item/ItemStack.java
+@@ -514,6 +514,12 @@ public final class ItemStack {
+     }
+ 
+     public int getMaxStackSize() {
++        // Whitehorse start - stackable items
++        if (this.tag != null && this.tag.contains("BromineMC.MaxStackSize")) {
++            byte maxStackSize = this.tag.getByte("BromineMC.MaxStackSize");
++            if (maxStackSize > 0 && maxStackSize <= 64) return maxStackSize;
++        }
++        // Whitehorse end
+         return this.getItem().getMaxStackSize();
+     }
+ 
+diff --git a/src/main/java/org/bukkit/craftbukkit/inventory/CraftItemStack.java b/src/main/java/org/bukkit/craftbukkit/inventory/CraftItemStack.java
+index f5363a753e5d24ccda946a9d65132eed28f19172..2be38277732342fef7dab9882cd53e8c366d55ca 100644
+--- a/src/main/java/org/bukkit/craftbukkit/inventory/CraftItemStack.java
++++ b/src/main/java/org/bukkit/craftbukkit/inventory/CraftItemStack.java
+@@ -170,7 +170,7 @@ public final class CraftItemStack extends ItemStack {
+ 
+     @Override
+     public int getMaxStackSize() {
+-        return (this.handle == null) ? Material.AIR.getMaxStackSize() : this.handle.getItem().getMaxStackSize();
++        return (this.handle == null) ? Material.AIR.getMaxStackSize() : this.handle.getMaxStackSize(); // Whitehorse - stackable items
+     }
+ 
+     // Paper start
