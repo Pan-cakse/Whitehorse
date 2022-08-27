@@ -1,0 +1,47 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: VidTu <60929459+VidTu@users.noreply.github.com>
+Date: Sun, 28 Aug 2022 02:06:51 +0300
+Subject: [PATCH] Remove chat validation
+
+
+diff --git a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
+index 4517186b87938e002d3f6446beda880486ff1bfe..173ccbb4cb3ef6dc9ba50998011ab9f4a25909dc 100644
+--- a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
++++ b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
+@@ -2344,6 +2344,8 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+     }
+ 
+     private boolean tryHandleChat(String message, Instant timestamp, LastSeenMessages.Update acknowledgment) {
++        // Whitehorse start - remove chat validation
++        /*
+         if (!this.updateChatOrder(timestamp)) {
+             ServerGamePacketListenerImpl.LOGGER.warn("{} sent out-of-order chat: '{}': {} > {}", this.player.getName().getString(), message, this.lastChatTimeStamp.get().getEpochSecond(), timestamp.getEpochSecond()); // Paper
+             this.server.scheduleOnMain(() -> { // Paper - push to main
+@@ -2369,6 +2371,9 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+                 return true;
+             }
+         }
++         */
++        return true;
++        // Whitehorse end
+     }
+ 
+     private boolean updateChatOrder(Instant timestamp) {
+@@ -2597,6 +2602,8 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+     }
+ 
+     private boolean verifyChatMessage(PlayerChatMessage playerchatmessage) {
++        // Whitehorse start - remove chat valdation
++        /*
+         ChatSender chatsender = this.player.asChatSender();
+         ProfilePublicKey profilepublickey = chatsender.profilePublicKey();
+ 
+@@ -2616,6 +2623,8 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+             ServerGamePacketListenerImpl.LOGGER.warn("{} sent expired chat: '{}'. Is the client/server system time unsynchronized? c: {} s: {}", this.player.getName().getString(), playerchatmessage.signedContent().plain(), playerchatmessage.timeStamp().getEpochSecond(), Instant.now().getEpochSecond()); // Paper
+         }
+ 
++        */
++        // Whitehorese end
+         return true;
+     }
+ 
