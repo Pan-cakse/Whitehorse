@@ -28,6 +28,12 @@ subprojects {
         options.encoding = "UTF-8"
         options.release.set(17)
     }
+    tasks.withType<Javadoc> {
+        options.encoding = Charsets.UTF_8.name()
+    }
+    tasks.withType<ProcessResources> {
+        filteringCharset = Charsets.UTF_8.name()
+    }
     repositories {
         mavenLocal()
         mavenCentral()
