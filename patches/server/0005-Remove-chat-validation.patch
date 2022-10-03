@@ -5,10 +5,10 @@ Subject: [PATCH] Remove chat validation
 
 
 diff --git a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
-index ea78fb81850168fd5bd63403c37caddafa075347..53ac956f72b89f423b7420753c26fca2c3e35796 100644
+index 08f826b47fccf0e5dcf50a6e0e6d12b3bf09dda8..5d752e5a77942e325853930ed98c8f9615002af0 100644
 --- a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
 +++ b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
-@@ -2339,6 +2339,8 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+@@ -2340,6 +2340,8 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
      }
  
      private boolean tryHandleChat(String message, Instant timestamp, LastSeenMessages.Update acknowledgment) {
@@ -17,7 +17,7 @@ index ea78fb81850168fd5bd63403c37caddafa075347..53ac956f72b89f423b7420753c26fca2
          if (!this.updateChatOrder(timestamp)) {
              ServerGamePacketListenerImpl.LOGGER.warn("{} sent out-of-order chat: '{}': {} > {}", this.player.getName().getString(), message, this.lastChatTimeStamp.get().getEpochSecond(), timestamp.getEpochSecond()); // Paper
              this.server.scheduleOnMain(() -> { // Paper - push to main
-@@ -2364,6 +2366,9 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+@@ -2365,6 +2367,9 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
                  return true;
              }
          }
@@ -27,7 +27,7 @@ index ea78fb81850168fd5bd63403c37caddafa075347..53ac956f72b89f423b7420753c26fca2
      }
  
      private boolean updateChatOrder(Instant timestamp) {
-@@ -2595,6 +2600,8 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+@@ -2596,6 +2601,8 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
      }
  
      private boolean verifyChatMessage(PlayerChatMessage playerchatmessage) {
@@ -36,7 +36,7 @@ index ea78fb81850168fd5bd63403c37caddafa075347..53ac956f72b89f423b7420753c26fca2
          ChatSender chatsender = this.player.asChatSender();
          ProfilePublicKey profilepublickey = chatsender.profilePublicKey();
  
-@@ -2614,6 +2621,8 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+@@ -2615,6 +2622,8 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
              ServerGamePacketListenerImpl.LOGGER.warn("{} sent expired chat: '{}'. Is the client/server system time unsynchronized? c: {} s: {}", this.player.getName().getString(), playerchatmessage.signedContent().plain(), playerchatmessage.timeStamp().getEpochSecond(), Instant.now().getEpochSecond()); // Paper
          }
  
