@@ -5,7 +5,7 @@ Subject: [PATCH] Remove chat validation
 
 
 diff --git a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
-index 08f826b47fccf0e5dcf50a6e0e6d12b3bf09dda8..5d752e5a77942e325853930ed98c8f9615002af0 100644
+index e69b5e9425c98d0e3480d9096152a7fc895d2650..14f81b27673992976153cee147ec068da5d4d714 100644
 --- a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
 +++ b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
 @@ -2340,6 +2340,8 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
@@ -27,7 +27,7 @@ index 08f826b47fccf0e5dcf50a6e0e6d12b3bf09dda8..5d752e5a77942e325853930ed98c8f96
      }
  
      private boolean updateChatOrder(Instant timestamp) {
-@@ -2596,6 +2601,8 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+@@ -2597,6 +2602,8 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
      }
  
      private boolean verifyChatMessage(PlayerChatMessage playerchatmessage) {
@@ -36,7 +36,7 @@ index 08f826b47fccf0e5dcf50a6e0e6d12b3bf09dda8..5d752e5a77942e325853930ed98c8f96
          ChatSender chatsender = this.player.asChatSender();
          ProfilePublicKey profilepublickey = chatsender.profilePublicKey();
  
-@@ -2615,6 +2622,8 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+@@ -2616,6 +2623,8 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
              ServerGamePacketListenerImpl.LOGGER.warn("{} sent expired chat: '{}'. Is the client/server system time unsynchronized? c: {} s: {}", this.player.getName().getString(), playerchatmessage.signedContent().plain(), playerchatmessage.timeStamp().getEpochSecond(), Instant.now().getEpochSecond()); // Paper
          }
  

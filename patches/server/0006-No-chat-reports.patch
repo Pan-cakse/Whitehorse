@@ -9,49 +9,10 @@ Licensed under GNU General Public License v3.0
 <https://github.com/e-im/FreedomChat/blob/main/LICENSE>
 
 diff --git a/src/main/java/net/minecraft/network/chat/OutgoingPlayerChatMessage.java b/src/main/java/net/minecraft/network/chat/OutgoingPlayerChatMessage.java
-index d032fce4cf33027c8803b9ab122780eeb831c932..dcc0d66f975ac0975d63df71a246f2d8b86b1ffa 100644
+index d032fce4cf33027c8803b9ab122780eeb831c932..ff104ca7ae29634b5bbd53ea7efc15b6bccb4237 100644
 --- a/src/main/java/net/minecraft/network/chat/OutgoingPlayerChatMessage.java
 +++ b/src/main/java/net/minecraft/network/chat/OutgoingPlayerChatMessage.java
-@@ -14,12 +14,12 @@ public interface OutgoingPlayerChatMessage {
- 
-     void sendToPlayer(ServerPlayer sender, boolean filterMaskEnabled, ChatType.Bound params);
- 
--    // Paper start
--    default void sendToPlayer(ServerPlayer sender, boolean filterMaskEnabled, ChatType.Bound params, @javax.annotation.Nullable Component unsigned) {
--        this.sendToPlayer(sender, filterMaskEnabled, params);
--    }
--    // Paper end
--
-+    // Paper start
-+    default void sendToPlayer(ServerPlayer sender, boolean filterMaskEnabled, ChatType.Bound params, @javax.annotation.Nullable Component unsigned) {
-+        this.sendToPlayer(sender, filterMaskEnabled, params);
-+    }
-+    // Paper end
-+
-     void sendHeadersToRemainingPlayers(PlayerList playerManager);
- 
-     static OutgoingPlayerChatMessage create(PlayerChatMessage message) {
-@@ -40,20 +40,27 @@ public interface OutgoingPlayerChatMessage {
- 
-         @Override
-         public void sendToPlayer(ServerPlayer sender, boolean filterMaskEnabled, ChatType.Bound params) {
--            // Paper start
--            this.sendToPlayer(sender, filterMaskEnabled, params, null);
--        }
--
--        @Override
--        public void sendToPlayer(ServerPlayer sender, boolean filterMaskEnabled, ChatType.Bound params, @javax.annotation.Nullable Component unsigned) {
--            // Paper end
-+            // Paper start
-+            this.sendToPlayer(sender, filterMaskEnabled, params, null);
-+        }
-+
-+        @Override
-+        public void sendToPlayer(ServerPlayer sender, boolean filterMaskEnabled, ChatType.Bound params, @javax.annotation.Nullable Component unsigned) {
-+            // Paper end
-             PlayerChatMessage playerChatMessage = this.message.filter(filterMaskEnabled);
--            playerChatMessage = unsigned != null ? playerChatMessage.withUnsignedContent(unsigned) : playerChatMessage; // Paper
-+            playerChatMessage = unsigned != null ? playerChatMessage.withUnsignedContent(unsigned) : playerChatMessage; // Paper
+@@ -52,8 +52,15 @@ public interface OutgoingPlayerChatMessage {
              if (!playerChatMessage.isFullyFiltered()) {
                  RegistryAccess registryAccess = sender.level.registryAccess();
                  ChatType.BoundNetwork boundNetwork = params.toNetwork(registryAccess);
@@ -67,28 +28,7 @@ index d032fce4cf33027c8803b9ab122780eeb831c932..dcc0d66f975ac0975d63df71a246f2d8
              }
  
          }
-@@ -78,23 +85,30 @@ public interface OutgoingPlayerChatMessage {
- 
-         @Override
-         public void sendToPlayer(ServerPlayer sender, boolean filterMaskEnabled, ChatType.Bound params) {
--            // Paper start
--            this.sendToPlayer(sender, filterMaskEnabled, params, null);
--        }
--
--        @Override
--        public void sendToPlayer(ServerPlayer sender, boolean filterMaskEnabled, ChatType.Bound params, @javax.annotation.Nullable Component unsigned) {
--            // Paper end
-+            // Paper start
-+            this.sendToPlayer(sender, filterMaskEnabled, params, null);
-+        }
-+
-+        @Override
-+        public void sendToPlayer(ServerPlayer sender, boolean filterMaskEnabled, ChatType.Bound params, @javax.annotation.Nullable Component unsigned) {
-+            // Paper end
-             PlayerChatMessage playerChatMessage = this.message.filter(filterMaskEnabled);
--            playerChatMessage = unsigned != null ? playerChatMessage.withUnsignedContent(unsigned) : playerChatMessage; // Paper
-+            playerChatMessage = unsigned != null ? playerChatMessage.withUnsignedContent(unsigned) : playerChatMessage; // Paper
-             if (!playerChatMessage.isFullyFiltered()) {
+@@ -91,10 +98,17 @@ public interface OutgoingPlayerChatMessage {
                  this.playersWithFullMessage.add(sender);
                  RegistryAccess registryAccess = sender.level.registryAccess();
                  ChatType.BoundNetwork boundNetwork = params.toNetwork(registryAccess);
@@ -107,10 +47,10 @@ index d032fce4cf33027c8803b9ab122780eeb831c932..dcc0d66f975ac0975d63df71a246f2d8
  
          }
 diff --git a/src/main/java/net/minecraft/server/level/ServerPlayer.java b/src/main/java/net/minecraft/server/level/ServerPlayer.java
-index af7acb628b84539b1ee5ef1934f75f091c4cd91e..a2401aca57425ceb0125b0bb027792a7a65746bc 100644
+index 5819e8e5e3c6f87eb123cf16091ea74357d53b3b..f21ffa5bb0328946fb9e95419c5bf04399075d60 100644
 --- a/src/main/java/net/minecraft/server/level/ServerPlayer.java
 +++ b/src/main/java/net/minecraft/server/level/ServerPlayer.java
-@@ -1884,7 +1884,8 @@ public class ServerPlayer extends Player {
+@@ -1903,7 +1903,8 @@ public class ServerPlayer extends Player {
  
      public void sendChatHeader(SignedMessageHeader header, MessageSignature headerSignature, byte[] bodyDigest) {
          if (this.acceptsChatMessages()) {
@@ -120,7 +60,7 @@ index af7acb628b84539b1ee5ef1934f75f091c4cd91e..a2401aca57425ceb0125b0bb027792a7
          }
  
      }
-@@ -1947,7 +1948,7 @@ public class ServerPlayer extends Player {
+@@ -1980,7 +1981,7 @@ public class ServerPlayer extends Player {
      }
  
      public void sendServerStatus(ServerStatus metadata) {
