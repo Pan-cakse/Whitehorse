@@ -1,14 +1,14 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: VidTu <60929459+VidTu@users.noreply.github.com>
-Date: Sun, 28 Aug 2022 01:49:51 +0300
+Date: Tue, 7 Feb 2023 03:38:55 +0300
 Subject: [PATCH] Stackable items
 
 
 diff --git a/src/main/java/net/minecraft/world/item/ItemStack.java b/src/main/java/net/minecraft/world/item/ItemStack.java
-index c18a0bc94d0210396046f4475e49a739088593f3..d7b5f46dfc10a71a7f2ad36e960d4e214e2a7625 100644
+index 39a62d1dd85dbee349b05ac16ef4ee5572ddb1d6..08a7fca1e9ed6ad0841a67ea5a9c5ac286f7df62 100644
 --- a/src/main/java/net/minecraft/world/item/ItemStack.java
 +++ b/src/main/java/net/minecraft/world/item/ItemStack.java
-@@ -514,6 +514,12 @@ public final class ItemStack {
+@@ -526,6 +526,12 @@ public final class ItemStack {
      }
  
      public int getMaxStackSize() {
@@ -22,7 +22,7 @@ index c18a0bc94d0210396046f4475e49a739088593f3..d7b5f46dfc10a71a7f2ad36e960d4e21
      }
  
 diff --git a/src/main/java/org/bukkit/craftbukkit/inventory/CraftItemStack.java b/src/main/java/org/bukkit/craftbukkit/inventory/CraftItemStack.java
-index f5363a753e5d24ccda946a9d65132eed28f19172..2be38277732342fef7dab9882cd53e8c366d55ca 100644
+index 97c5a72096ac0fd0b08a397466486014cfea4579..6fc82db64ac5d390605144cc043f7a4b140e5bb2 100644
 --- a/src/main/java/org/bukkit/craftbukkit/inventory/CraftItemStack.java
 +++ b/src/main/java/org/bukkit/craftbukkit/inventory/CraftItemStack.java
 @@ -170,7 +170,7 @@ public final class CraftItemStack extends ItemStack {
