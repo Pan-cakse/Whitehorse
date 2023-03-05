@@ -5,7 +5,7 @@ Subject: [PATCH] Stackable items
 
 
 diff --git a/src/main/java/net/minecraft/world/item/ItemStack.java b/src/main/java/net/minecraft/world/item/ItemStack.java
-index 39a62d1dd85dbee349b05ac16ef4ee5572ddb1d6..08a7fca1e9ed6ad0841a67ea5a9c5ac286f7df62 100644
+index e2b341ecddb946e9c1e546b9706d86dd030db865..ec59f264bbe58b54b7a1136ef3307d3625eaed07 100644
 --- a/src/main/java/net/minecraft/world/item/ItemStack.java
 +++ b/src/main/java/net/minecraft/world/item/ItemStack.java
 @@ -526,6 +526,12 @@ public final class ItemStack {
@@ -13,8 +13,8 @@ index 39a62d1dd85dbee349b05ac16ef4ee5572ddb1d6..08a7fca1e9ed6ad0841a67ea5a9c5ac2
  
      public int getMaxStackSize() {
 +        // Whitehorse start - stackable items
-+        if (this.tag != null && this.tag.contains("BromineMC.MaxStackSize")) {
-+            byte maxStackSize = this.tag.getByte("BromineMC.MaxStackSize");
++        if (this.tag != null && this.tag.contains("Whitehorse.MaxStackSize")) {
++            byte maxStackSize = this.tag.getByte("Whitehorse.MaxStackSize");
 +            if (maxStackSize > 0 && maxStackSize <= 64) return maxStackSize;
 +        }
 +        // Whitehorse end
