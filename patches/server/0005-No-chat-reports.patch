@@ -5,70 +5,20 @@ Subject: [PATCH] No chat reports
 
 
 diff --git a/src/main/java/net/minecraft/network/chat/OutgoingChatMessage.java b/src/main/java/net/minecraft/network/chat/OutgoingChatMessage.java
-index 6d7ea7818fa0cac65c85a5fc1fdbf7165b17ce35..af71e114ca960c1c73f695b3f18685745bdd0481 100644
+index 74cf1c043beef03cfd5adf481414a5ee78bef2a6..823e17db76aaa4b2d18dd4137bf2555858559c9e 100644
 --- a/src/main/java/net/minecraft/network/chat/OutgoingChatMessage.java
 +++ b/src/main/java/net/minecraft/network/chat/OutgoingChatMessage.java
-@@ -7,25 +7,25 @@ public interface OutgoingChatMessage {
+@@ -14,7 +14,7 @@ public interface OutgoingChatMessage {
+     // Paper end
  
-     void sendToPlayer(ServerPlayer sender, boolean filterMaskEnabled, ChatType.Bound params);
- 
--    // Paper start
--    default void sendToPlayer(ServerPlayer sender, boolean filterMaskEnabled, ChatType.Bound params, @javax.annotation.Nullable Component unsigned) {
--        this.sendToPlayer(sender, filterMaskEnabled, params);
--    }
--    // Paper end
--
-+    // Paper start
-+    default void sendToPlayer(ServerPlayer sender, boolean filterMaskEnabled, ChatType.Bound params, @javax.annotation.Nullable Component unsigned) {
-+        this.sendToPlayer(sender, filterMaskEnabled, params);
-+    }
-+    // Paper end
-+
      static OutgoingChatMessage create(PlayerChatMessage message) {
 -        return (OutgoingChatMessage)(message.isSystem() ? new OutgoingChatMessage.Disguised(message.decoratedContent()) : new OutgoingChatMessage.Player(message));
 +        return new OutgoingChatMessage.Disguised(message.decoratedContent()); // Whitehorse - no chat reports
      }
  
      public static record Disguised(Component content) implements OutgoingChatMessage {
-         @Override
-         public void sendToPlayer(ServerPlayer sender, boolean filterMaskEnabled, ChatType.Bound params) {
--           // Paper start
--            this.sendToPlayer(sender, filterMaskEnabled, params, null);
--        }
--        public void sendToPlayer(ServerPlayer sender, boolean filterMaskEnabled, ChatType.Bound params, @javax.annotation.Nullable Component unsigned) {
--            sender.connection.sendDisguisedChatMessage(unsigned != null ? unsigned : this.content, params);
--            // Paper end
-+           // Paper start
-+            this.sendToPlayer(sender, filterMaskEnabled, params, null);
-+        }
-+        public void sendToPlayer(ServerPlayer sender, boolean filterMaskEnabled, ChatType.Bound params, @javax.annotation.Nullable Component unsigned) {
-+            sender.connection.sendDisguisedChatMessage(unsigned != null ? unsigned : this.content, params);
-+            // Paper end
-         }
-     }
- 
-@@ -37,13 +37,13 @@ public interface OutgoingChatMessage {
- 
-         @Override
-         public void sendToPlayer(ServerPlayer sender, boolean filterMaskEnabled, ChatType.Bound params) {
--            // Paper start
--            this.sendToPlayer(sender, filterMaskEnabled, params, null);
--        }
--        public void sendToPlayer(ServerPlayer sender, boolean filterMaskEnabled, ChatType.Bound params, @javax.annotation.Nullable Component unsigned) {
--            // Paper end
-+            // Paper start
-+            this.sendToPlayer(sender, filterMaskEnabled, params, null);
-+        }
-+        public void sendToPlayer(ServerPlayer sender, boolean filterMaskEnabled, ChatType.Bound params, @javax.annotation.Nullable Component unsigned) {
-+            // Paper end
-             PlayerChatMessage playerChatMessage = this.message.filter(filterMaskEnabled);
--            playerChatMessage = unsigned != null ? playerChatMessage.withUnsignedContent(unsigned) : playerChatMessage; // Paper
-+            playerChatMessage = unsigned != null ? playerChatMessage.withUnsignedContent(unsigned) : playerChatMessage; // Paper
-             if (!playerChatMessage.isFullyFiltered()) {
-                 sender.connection.sendPlayerChatMessage(playerChatMessage, params);
-             }
 diff --git a/src/main/java/net/minecraft/server/level/ServerPlayer.java b/src/main/java/net/minecraft/server/level/ServerPlayer.java
-index d62bf95fb067c2e2a4fc9b2757c636bd4ee75bea..5750d35da8acd5bf4913e12eea8a8e415ea37231 100644
+index 8664b5cfc739fc6b57643210cac3d03b279a59a1..7d1aa474d95f81c02a9bee3cba6885d03f7e6577 100644
 --- a/src/main/java/net/minecraft/server/level/ServerPlayer.java
 +++ b/src/main/java/net/minecraft/server/level/ServerPlayer.java
 @@ -2073,7 +2073,7 @@ public class ServerPlayer extends Player {
@@ -81,10 +31,10 @@ index d62bf95fb067c2e2a4fc9b2757c636bd4ee75bea..5750d35da8acd5bf4913e12eea8a8e41
  
      @Override
 diff --git a/src/main/java/net/minecraft/server/players/PlayerList.java b/src/main/java/net/minecraft/server/players/PlayerList.java
-index c34c5368e336ba4b181a95932a9b40cb4f50ae1d..d3c2e215d786c6d9c31058a149d847ced6152b9e 100644
+index 82093c413722e280b9fcb46fb0ba03ca629e54fa..8897460e1a6ccabbef16fb320071a86ae2896f94 100644
 --- a/src/main/java/net/minecraft/server/players/PlayerList.java
 +++ b/src/main/java/net/minecraft/server/players/PlayerList.java
-@@ -1448,7 +1448,7 @@ public abstract class PlayerList {
+@@ -1450,7 +1450,7 @@ public abstract class PlayerList {
      }
  
      public boolean verifyChatTrusted(PlayerChatMessage message) { // Paper - private -> public

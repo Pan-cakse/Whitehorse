@@ -2,8 +2,8 @@ import io.papermc.paperweight.util.constants.PAPERCLIP_CONFIG
 
 plugins {
     java
-    id("com.github.johnrengelman.shadow") version "7.1.2" apply false
-    id("io.papermc.paperweight.patcher") version "1.4.1"
+    id("com.github.johnrengelman.shadow") version "8.1.0" apply false
+    id("io.papermc.paperweight.patcher") version "1.5.2"
 }
 
 repositories {
@@ -49,6 +49,7 @@ paperweight {
         url.set(github("PurpurMC", "Purpur"))
         ref.set(providers.gradleProperty("purpur"))
         withStandardPatcher {
+            baseName("Purpur")
             apiSourceDirPath.set("Purpur-API")
             serverSourceDirPath.set("Purpur-Server")
             apiPatchDir.set(layout.projectDirectory.dir("patches/api"))
