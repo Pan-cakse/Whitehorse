@@ -1,6 +1,6 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: VidTu <60929459+VidTu@users.noreply.github.com>
-Date: Tue, 7 Feb 2023 05:27:33 +0300
+Date: Thu, 30 Mar 2023 09:40:52 +0300
 Subject: [PATCH] No chat reports
 
 
@@ -18,23 +18,23 @@ index 74cf1c043beef03cfd5adf481414a5ee78bef2a6..823e17db76aaa4b2d18dd4137bf25558
  
      public static record Disguised(Component content) implements OutgoingChatMessage {
 diff --git a/src/main/java/net/minecraft/server/level/ServerPlayer.java b/src/main/java/net/minecraft/server/level/ServerPlayer.java
-index 8664b5cfc739fc6b57643210cac3d03b279a59a1..7d1aa474d95f81c02a9bee3cba6885d03f7e6577 100644
+index 8a4be66f967dfd6b57ab542ae9b06c840647486d..2b8cc89d8628ff6d1f5c3b7cc5772fe39b3be779 100644
 --- a/src/main/java/net/minecraft/server/level/ServerPlayer.java
 +++ b/src/main/java/net/minecraft/server/level/ServerPlayer.java
-@@ -2073,7 +2073,7 @@ public class ServerPlayer extends Player {
+@@ -2091,7 +2091,7 @@ public class ServerPlayer extends Player {
      }
  
      public void sendServerStatus(ServerStatus metadata) {
--        this.connection.send(new ClientboundServerDataPacket(metadata.getDescription(), metadata.getFavicon(), metadata.enforcesSecureChat()));
-+        this.connection.send(new ClientboundServerDataPacket(metadata.getDescription(), metadata.getFavicon(), true)); // Whitehorse - no chat reports
+-        this.connection.send(new ClientboundServerDataPacket(metadata.description(), metadata.favicon().map(ServerStatus.Favicon::iconBytes), metadata.enforcesSecureChat()));
++        this.connection.send(new ClientboundServerDataPacket(metadata.description(), metadata.favicon().map(ServerStatus.Favicon::iconBytes), true)); // Whitehorse - no chat reports
      }
  
      @Override
 diff --git a/src/main/java/net/minecraft/server/players/PlayerList.java b/src/main/java/net/minecraft/server/players/PlayerList.java
-index 82093c413722e280b9fcb46fb0ba03ca629e54fa..8897460e1a6ccabbef16fb320071a86ae2896f94 100644
+index 1a288ebcaade0cc44c7d09478f4f2f8eee7a4269..4a2595e23f86e0856953cc0c3dbe565937e9e063 100644
 --- a/src/main/java/net/minecraft/server/players/PlayerList.java
 +++ b/src/main/java/net/minecraft/server/players/PlayerList.java
-@@ -1450,7 +1450,7 @@ public abstract class PlayerList {
+@@ -1457,7 +1457,7 @@ public abstract class PlayerList {
      }
  
      public boolean verifyChatTrusted(PlayerChatMessage message) { // Paper - private -> public

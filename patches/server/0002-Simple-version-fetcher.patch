@@ -1,12 +1,12 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: VidTu <60929459+VidTu@users.noreply.github.com>
-Date: Tue, 7 Feb 2023 03:37:08 +0300
+Date: Thu, 30 Mar 2023 09:34:56 +0300
 Subject: [PATCH] Simple version fetcher
 
 
 diff --git a/src/main/java/com/github/brominemc/whitehorse/WhitehorseVersionFetcher.java b/src/main/java/com/github/brominemc/whitehorse/WhitehorseVersionFetcher.java
 new file mode 100644
-index 0000000000000000000000000000000000000000..9e4fafa5e4df2c9629b691a0c70371c4608bfe30
+index 0000000000000000000000000000000000000000..e31d85ea5c94b094cb53cbcbfc3f6da84415cedf
 --- /dev/null
 +++ b/src/main/java/com/github/brominemc/whitehorse/WhitehorseVersionFetcher.java
 @@ -0,0 +1,18 @@
@@ -20,7 +20,7 @@ index 0000000000000000000000000000000000000000..9e4fafa5e4df2c9629b691a0c70371c4
 +public class WhitehorseVersionFetcher implements VersionFetcher {
 +    @Override
 +    public long getCacheTime() {
-+        return -1;
++        return Long.MAX_VALUE;
 +    }
 +
 +    @Override
@@ -29,10 +29,10 @@ index 0000000000000000000000000000000000000000..9e4fafa5e4df2c9629b691a0c70371c4
 +    }
 +}
 diff --git a/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java b/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
-index a3a627eca3219d234c57ab491a30c770baf24395..d286f0c2ce5c520a093ad633723611673f7053bc 100644
+index 1dd7f923dd6adb41eafc3ea0c063e3aae6670124..63ecd6f477fe9c02ed1f6c31b584a155902fe41a 100644
 --- a/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
 +++ b/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
-@@ -468,7 +468,7 @@ public final class CraftMagicNumbers implements UnsafeValues {
+@@ -464,7 +464,7 @@ public final class CraftMagicNumbers implements UnsafeValues {
  
      @Override
      public com.destroystokyo.paper.util.VersionFetcher getVersionFetcher() {
