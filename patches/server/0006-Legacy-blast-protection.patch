@@ -5,14 +5,14 @@ Subject: [PATCH] Legacy blast protection
 
 
 diff --git a/src/main/java/net/minecraft/world/entity/LivingEntity.java b/src/main/java/net/minecraft/world/entity/LivingEntity.java
-index 8d7c33e16f9eaec2120c5aad75172ff656d1bd17..a4864aa8707adb0676f18bc205a3cc4e58a7b4dd 100644
+index b67660cda74a4754d1701e746aca99bde868c150..7af06323ec3aa4d67da2019986c848d5c5400ac6 100644
 --- a/src/main/java/net/minecraft/world/entity/LivingEntity.java
 +++ b/src/main/java/net/minecraft/world/entity/LivingEntity.java
 @@ -262,6 +262,7 @@ public abstract class LivingEntity extends Entity implements Attackable {
      public boolean silentDeath = false; // Paper - mark entity as dying silently for cancellable death event
      public net.kyori.adventure.util.TriState frictionState = net.kyori.adventure.util.TriState.NOT_SET; // Paper
      protected boolean shouldBurnInDay = false;  public boolean shouldBurnInDay() { return this.shouldBurnInDay; } public void setShouldBurnInDay(boolean shouldBurnInDay) { this.shouldBurnInDay = shouldBurnInDay; } // Purpur
-+    public boolean legacyBlastProtection = true; // Whitehorse - Revert fix for MC-198809
++    public boolean legacyBlastProtection = false; // Whitehorse - Revert fix for MC-198809
  
      @Override
      public float getBukkitYaw() {
