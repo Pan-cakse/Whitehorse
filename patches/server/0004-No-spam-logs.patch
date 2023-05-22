@@ -5,10 +5,10 @@ Subject: [PATCH] No spam logs
 
 
 diff --git a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
-index 7254d62f3713113027eba29853e9d975eab15f7f..e60d00c6ccd15f430d30172f3dbe82445471c745 100644
+index af8cb1f1f0c128923495f51e4828003133ce766b..64e81e9c4d090b6f960a6613d1b896f7a6482ea0 100644
 --- a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
 +++ b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
-@@ -691,7 +691,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+@@ -692,7 +692,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
  
                  if (d10 - d9 > Math.max(100.0D, Math.pow((double) (org.spigotmc.SpigotConfig.movedTooQuicklyMultiplier * (float) i * speed), 2)) && !this.isSingleplayerOwner()) {
                  // CraftBukkit end
@@ -17,7 +17,7 @@ index 7254d62f3713113027eba29853e9d975eab15f7f..e60d00c6ccd15f430d30172f3dbe8244
                      this.connection.send(new ClientboundMoveVehiclePacket(entity));
                      return;
                  }
-@@ -719,7 +719,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+@@ -720,7 +720,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
  
                  if (d10 > org.spigotmc.SpigotConfig.movedWronglyThreshold) { // Spigot
                      flag2 = true; // Paper - diff on change, this should be moved wrongly
@@ -26,7 +26,7 @@ index 7254d62f3713113027eba29853e9d975eab15f7f..e60d00c6ccd15f430d30172f3dbe8244
                  }
                  Location curPos = this.getCraftPlayer().getLocation(); // Spigot
  
-@@ -1545,7 +1545,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+@@ -1546,7 +1546,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
  
                                  if (d11 - d10 > Math.max(f2, Math.pow((double) (org.spigotmc.SpigotConfig.movedTooQuicklyMultiplier * (float) i * speed), 2)) && !this.isSingleplayerOwner()) {
                                  // CraftBukkit end
@@ -35,7 +35,7 @@ index 7254d62f3713113027eba29853e9d975eab15f7f..e60d00c6ccd15f430d30172f3dbe8244
                                      this.teleport(this.player.getX(), this.player.getY(), this.player.getZ(), this.player.getYRot(), this.player.getXRot());
                                      return;
                                  }
-@@ -1613,7 +1613,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+@@ -1614,7 +1614,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
  
                              if (!this.player.isChangingDimension() && d11 > org.spigotmc.SpigotConfig.movedWronglyThreshold && !this.player.isSleeping() && !this.player.gameMode.isCreative() && this.player.gameMode.getGameModeForPlayer() != GameType.SPECTATOR) { // Spigot
                                  flag2 = true; // Paper - diff on change, this should be moved wrongly

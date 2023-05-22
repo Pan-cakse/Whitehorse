@@ -27,10 +27,10 @@ index 22470f0ab8354a9f31a0f195f3fe80f2f5ee2f0e..268e52c48b32fc61f123eb2a49fcb1e4
              "Specification-Title" to "Bukkit",
              "Specification-Version" to project.version,
 diff --git a/src/main/java/org/bukkit/craftbukkit/CraftServer.java b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-index bc1a2df0a7ddaf030917e4723994464d77e55d02..c55b076d3538542e51c961edcdfd79e7dc93d619 100644
+index e5bac6bc792196226f975e7f3dd8f147fb14dbad..ab4026ff0c88cecad9dc2b46368515b77ebd8f6d 100644
 --- a/src/main/java/org/bukkit/craftbukkit/CraftServer.java
 +++ b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-@@ -256,7 +256,7 @@ import javax.annotation.Nullable; // Paper
+@@ -257,7 +257,7 @@ import javax.annotation.Nullable; // Paper
  import javax.annotation.Nonnull; // Paper
  
  public final class CraftServer implements Server {
@@ -53,7 +53,7 @@ index 99597258e8e88cd9e2c901c4ac3ff7faeeabee2b..2226f9f01596db96efe2876546c422ee
  
          if (stream != null) {
 diff --git a/src/main/java/org/purpurmc/purpur/PurpurConfig.java b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
-index 0bcbe1f07ff8e552d2abd6e432af5710005acc04..c753b93f2cb26e0c3362bee3a5fd9b242b41813c 100644
+index 62ad4c6ad417e11e9152f74636b2ff0d187d0799..de89485901c3f936040a1369ed3163a8b394c9aa 100644
 --- a/src/main/java/org/purpurmc/purpur/PurpurConfig.java
 +++ b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
 @@ -227,7 +227,7 @@ public class PurpurConfig {
