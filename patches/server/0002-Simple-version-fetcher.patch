@@ -4,13 +4,26 @@ Date: Thu, 30 Mar 2023 09:34:56 +0300
 Subject: [PATCH] Simple version fetcher
 
 
-diff --git a/src/main/java/com/github/brominemc/whitehorse/WhitehorseVersionFetcher.java b/src/main/java/com/github/brominemc/whitehorse/WhitehorseVersionFetcher.java
+diff --git a/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java b/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
+index 0aee1fadaeb948fd90d8e61ac57dbe7f810529ff..3dcaf39a4b164643c6205e5425c42eded8014ab7 100644
+--- a/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
++++ b/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
+@@ -470,7 +470,7 @@ public final class CraftMagicNumbers implements UnsafeValues {
+ 
+     @Override
+     public com.destroystokyo.paper.util.VersionFetcher getVersionFetcher() {
+-        return new com.destroystokyo.paper.PaperVersionFetcher(); // Pufferfish // Purpur
++        return new ru.brominemc.whitehorse.WhitehorseVersionFetcher(); // Pufferfish // Purpur // Whitehorse
+     }
+ 
+     @Override
+diff --git a/src/main/java/ru/brominemc/whitehorse/WhitehorseVersionFetcher.java b/src/main/java/ru/brominemc/whitehorse/WhitehorseVersionFetcher.java
 new file mode 100644
-index 0000000000000000000000000000000000000000..e31d85ea5c94b094cb53cbcbfc3f6da84415cedf
+index 0000000000000000000000000000000000000000..7dd13fdd42832120556dabd3b8086b30ae509d9b
 --- /dev/null
-+++ b/src/main/java/com/github/brominemc/whitehorse/WhitehorseVersionFetcher.java
++++ b/src/main/java/ru/brominemc/whitehorse/WhitehorseVersionFetcher.java
 @@ -0,0 +1,18 @@
-+package com.github.brominemc.whitehorse;
++package ru.brominemc.whitehorse;
 +
 +import com.destroystokyo.paper.util.VersionFetcher;
 +import net.kyori.adventure.text.Component;
@@ -28,16 +41,3 @@ index 0000000000000000000000000000000000000000..e31d85ea5c94b094cb53cbcbfc3f6da8
 +        return Component.text("Whitehorse: ").append(Component.text(serverVersion, NamedTextColor.GREEN));
 +    }
 +}
-diff --git a/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java b/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
-index 0aee1fadaeb948fd90d8e61ac57dbe7f810529ff..2ff90ae119b1144f71adeed59d5f7afd037969b7 100644
---- a/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
-+++ b/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
-@@ -470,7 +470,7 @@ public final class CraftMagicNumbers implements UnsafeValues {
- 
-     @Override
-     public com.destroystokyo.paper.util.VersionFetcher getVersionFetcher() {
--        return new com.destroystokyo.paper.PaperVersionFetcher(); // Pufferfish // Purpur
-+        return new com.github.brominemc.whitehorse.WhitehorseVersionFetcher(); // Pufferfish // Purpur // Whitehorse
-     }
- 
-     @Override

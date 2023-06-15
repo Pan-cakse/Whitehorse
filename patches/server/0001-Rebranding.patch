@@ -40,7 +40,7 @@ index 3f22bdb85465f7b0f0082715fdd524f6905a0344..029864a6a0f5146c93d4e2d2a9f06ae6
      private final String bukkitVersion = Versioning.getBukkitVersion();
      private final Logger logger = Logger.getLogger("Minecraft");
 diff --git a/src/main/java/org/bukkit/craftbukkit/util/Versioning.java b/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
-index 99597258e8e88cd9e2c901c4ac3ff7faeeabee2b..2226f9f01596db96efe2876546c422ee0993a0b1 100644
+index 99597258e8e88cd9e2c901c4ac3ff7faeeabee2b..64fef020e9072c33289d15f5937a2fc04f8de0d3 100644
 --- a/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
 +++ b/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
 @@ -11,7 +11,7 @@ public final class Versioning {
@@ -48,7 +48,7 @@ index 99597258e8e88cd9e2c901c4ac3ff7faeeabee2b..2226f9f01596db96efe2876546c422ee
          String result = "Unknown-Version";
  
 -        InputStream stream = Bukkit.class.getClassLoader().getResourceAsStream("META-INF/maven/org.purpurmc.purpur/purpur-api/pom.properties"); // Pufferfish // Purpur
-+        InputStream stream = Bukkit.class.getClassLoader().getResourceAsStream("META-INF/maven/com.github.brominemc.whitehorse/whitehorse-api/pom.properties"); // Pufferfish // Purpur // Whitehorse
++        InputStream stream = Bukkit.class.getClassLoader().getResourceAsStream("META-INF/maven/ru.brominemc.whitehorse/whitehorse-api/pom.properties"); // Pufferfish // Purpur // Whitehorse
          Properties properties = new Properties();
  
          if (stream != null) {
