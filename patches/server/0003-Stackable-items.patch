@@ -5,10 +5,10 @@ Subject: [PATCH] Stackable items
 
 
 diff --git a/src/main/java/net/minecraft/world/item/ItemStack.java b/src/main/java/net/minecraft/world/item/ItemStack.java
-index 45d864679816cb39420e079d37220a967e9d71d1..11acf48670f8c0ccdbd850df14a2b04be7d052e3 100644
+index 5e77294baace4c1e7f8f47bdb9ca362324511496..414ff64f297d43527948aad58a5aeb156db8cb5d 100644
 --- a/src/main/java/net/minecraft/world/item/ItemStack.java
 +++ b/src/main/java/net/minecraft/world/item/ItemStack.java
-@@ -548,6 +548,12 @@ public final class ItemStack {
+@@ -560,6 +560,12 @@ public final class ItemStack {
      }
  
      public int getMaxStackSize() {
@@ -22,10 +22,10 @@ index 45d864679816cb39420e079d37220a967e9d71d1..11acf48670f8c0ccdbd850df14a2b04b
      }
  
 diff --git a/src/main/java/org/bukkit/craftbukkit/inventory/CraftItemStack.java b/src/main/java/org/bukkit/craftbukkit/inventory/CraftItemStack.java
-index 0e7a6a5a83b4630f53e6dba1b5b29f67d91c7240..1c43adeb635695a5d6f1454b1d3f70681e50bc10 100644
+index 8657736cdfe2d5d2a1c0851ca54dd26ce17e0a83..1a0667710503118bb48c6b96ba671c764b95cefd 100644
 --- a/src/main/java/org/bukkit/craftbukkit/inventory/CraftItemStack.java
 +++ b/src/main/java/org/bukkit/craftbukkit/inventory/CraftItemStack.java
-@@ -170,7 +170,7 @@ public final class CraftItemStack extends ItemStack {
+@@ -171,7 +171,7 @@ public final class CraftItemStack extends ItemStack {
  
      @Override
      public int getMaxStackSize() {

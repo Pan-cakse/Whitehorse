@@ -29,15 +29,15 @@ index 0000000000000000000000000000000000000000..e31d85ea5c94b094cb53cbcbfc3f6da8
 +    }
 +}
 diff --git a/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java b/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
-index 1bf9a11abf7884a421374cbca5ccc18480717b79..e2093e8c23a196d493567550e40c47c87b26e160 100644
+index 0aee1fadaeb948fd90d8e61ac57dbe7f810529ff..2ff90ae119b1144f71adeed59d5f7afd037969b7 100644
 --- a/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
 +++ b/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
-@@ -472,7 +472,7 @@ public final class CraftMagicNumbers implements UnsafeValues {
+@@ -470,7 +470,7 @@ public final class CraftMagicNumbers implements UnsafeValues {
  
      @Override
      public com.destroystokyo.paper.util.VersionFetcher getVersionFetcher() {
--        return new com.destroystokyo.paper.PaperVersionFetcher(); // Purpur
-+        return new com.github.brominemc.whitehorse.WhitehorseVersionFetcher(); // Purpur // Whitehorse
+-        return new com.destroystokyo.paper.PaperVersionFetcher(); // Pufferfish // Purpur
++        return new com.github.brominemc.whitehorse.WhitehorseVersionFetcher(); // Pufferfish // Purpur // Whitehorse
      }
  
      @Override

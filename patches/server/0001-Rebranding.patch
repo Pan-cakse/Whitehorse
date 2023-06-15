@@ -5,19 +5,19 @@ Subject: [PATCH] Rebranding
 
 
 diff --git a/build.gradle.kts b/build.gradle.kts
-index 9c01005751c0088f560f96401cdfdebbbda4e7ec..cfccc44298ab34b532409dbccec38a3c96ae3179 100644
+index 3030116af88d66c376e794b55a4716381fc7552b..8e797c8501de57b598be2588dfdbb198dd0fe55d 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
-@@ -7,7 +7,7 @@ plugins {
- }
+@@ -8,7 +8,7 @@ plugins {
  
  dependencies {
--    implementation(project(":purpur-api")) // Purpur
-+    implementation(project(":whitehorse-api")) // Purpur // Whitehorse
-     implementation("io.papermc.paper:paper-mojangapi:1.19.4-R0.1-SNAPSHOT") // Purpur
-     // Paper start
-     implementation("org.jline:jline-terminal-jansi:3.21.0")
-@@ -81,7 +81,7 @@ tasks.jar {
+     // Purpur start
+-    implementation(project(":purpur-api"))
++    implementation(project(":whitehorse-api")) // Whitehorse
+     implementation("io.papermc.paper:paper-mojangapi:${project.version}") {
+         exclude("io.papermc.paper", "paper-api")
+     }
+@@ -86,7 +86,7 @@ tasks.jar {
          attributes(
              "Main-Class" to "org.bukkit.craftbukkit.Main",
              "Implementation-Title" to "CraftBukkit",
@@ -27,10 +27,10 @@ index 9c01005751c0088f560f96401cdfdebbbda4e7ec..cfccc44298ab34b532409dbccec38a3c
              "Specification-Title" to "Bukkit",
              "Specification-Version" to project.version,
 diff --git a/src/main/java/org/bukkit/craftbukkit/CraftServer.java b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-index 3310828edcabd2c24e3200dcb89d4e8ebd82cf16..c04e93eb6bbc92ba141568539c52ec943d1c5279 100644
+index 3f22bdb85465f7b0f0082715fdd524f6905a0344..029864a6a0f5146c93d4e2d2a9f06ae698c9e9d0 100644
 --- a/src/main/java/org/bukkit/craftbukkit/CraftServer.java
 +++ b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-@@ -262,7 +262,7 @@ import javax.annotation.Nullable; // Paper
+@@ -261,7 +261,7 @@ import javax.annotation.Nullable; // Paper
  import javax.annotation.Nonnull; // Paper
  
  public final class CraftServer implements Server {
@@ -53,7 +53,7 @@ index 99597258e8e88cd9e2c901c4ac3ff7faeeabee2b..2226f9f01596db96efe2876546c422ee
  
          if (stream != null) {
 diff --git a/src/main/java/org/purpurmc/purpur/PurpurConfig.java b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
-index be8b44daa0141151c973917a774aa07721647ed1..84011980a3158204342af2d158f56bc53f74785b 100644
+index 06fa43b469aea15dc64ce1866d08843327a34965..97baa51c545393f4df63343138e9df61c60a13b9 100644
 --- a/src/main/java/org/purpurmc/purpur/PurpurConfig.java
 +++ b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
 @@ -229,7 +229,7 @@ public class PurpurConfig {
