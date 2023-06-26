@@ -18,10 +18,10 @@ index 74cf1c043beef03cfd5adf481414a5ee78bef2a6..823e17db76aaa4b2d18dd4137bf25558
  
      public static record Disguised(Component content) implements OutgoingChatMessage {
 diff --git a/src/main/java/net/minecraft/server/level/ServerPlayer.java b/src/main/java/net/minecraft/server/level/ServerPlayer.java
-index e0e133ab39548b8e671441e3383a6f4df6f6997e..0758d1059aef696f885d909d13ee1ec46625ab25 100644
+index c9a8556d0aa832f05068c8e14343450d3be159bd..e1a3555fbaffb510130e1b59dbc7ef637261bab2 100644
 --- a/src/main/java/net/minecraft/server/level/ServerPlayer.java
 +++ b/src/main/java/net/minecraft/server/level/ServerPlayer.java
-@@ -2138,7 +2138,7 @@ public class ServerPlayer extends Player {
+@@ -2140,7 +2140,7 @@ public class ServerPlayer extends Player {
      }
  
      public void sendServerStatus(ServerStatus metadata) {
@@ -31,10 +31,10 @@ index e0e133ab39548b8e671441e3383a6f4df6f6997e..0758d1059aef696f885d909d13ee1ec4
  
      @Override
 diff --git a/src/main/java/net/minecraft/server/players/PlayerList.java b/src/main/java/net/minecraft/server/players/PlayerList.java
-index fb3a59fda3d4f5b2bca665b5665df2a355c61a15..5b5c9737a78209ef621755972739bceb35410af5 100644
+index ebcdf6aee72b817b9bbba8f8d580eae1876fc6e5..b76dc7c47eb879dc029e67d8d27f92136d35cd1c 100644
 --- a/src/main/java/net/minecraft/server/players/PlayerList.java
 +++ b/src/main/java/net/minecraft/server/players/PlayerList.java
-@@ -1470,7 +1470,7 @@ public abstract class PlayerList {
+@@ -1471,7 +1471,7 @@ public abstract class PlayerList {
      }
  
      public boolean verifyChatTrusted(PlayerChatMessage message) { // Paper - private -> public
