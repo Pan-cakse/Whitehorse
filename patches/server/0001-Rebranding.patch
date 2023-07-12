@@ -5,10 +5,10 @@ Subject: [PATCH] Rebranding
 
 
 diff --git a/build.gradle.kts b/build.gradle.kts
-index a125c0735cf4814b26ce8a96163bf65f74d23900..d910ca7ed73fdf6e45cca576fc81172ca0255705 100644
+index 240394b1d9dd1449674a299aa73fa155be2d3d82..81e392eb4e26aab93767d28d6737950f583cdd3d 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
-@@ -8,7 +8,7 @@ plugins {
+@@ -14,7 +14,7 @@ val alsoShade: Configuration by configurations.creating
  
  dependencies {
      // Purpur start
@@ -17,7 +17,7 @@ index a125c0735cf4814b26ce8a96163bf65f74d23900..d910ca7ed73fdf6e45cca576fc81172c
      implementation("io.papermc.paper:paper-mojangapi:${project.version}") {
          exclude("io.papermc.paper", "paper-api")
      }
-@@ -87,7 +87,7 @@ tasks.jar {
+@@ -95,7 +95,7 @@ tasks.jar {
          attributes(
              "Main-Class" to "org.bukkit.craftbukkit.Main",
              "Implementation-Title" to "CraftBukkit",
@@ -27,10 +27,10 @@ index a125c0735cf4814b26ce8a96163bf65f74d23900..d910ca7ed73fdf6e45cca576fc81172c
              "Specification-Title" to "Bukkit",
              "Specification-Version" to project.version,
 diff --git a/src/main/java/org/bukkit/craftbukkit/CraftServer.java b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-index 7a388f0e57bc05634be64b16fa66acdb416ac849..72570c7a43afa472be47ac85e0cb888d9204e3c3 100644
+index 81aee45085a29ceb8e36d7948432e2ca688978c0..9656a2064fca2f5eab23db4aff303c669cf1e75f 100644
 --- a/src/main/java/org/bukkit/craftbukkit/CraftServer.java
 +++ b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-@@ -261,7 +261,7 @@ import javax.annotation.Nullable; // Paper
+@@ -264,7 +264,7 @@ import javax.annotation.Nullable; // Paper
  import javax.annotation.Nonnull; // Paper
  
  public final class CraftServer implements Server {
@@ -53,7 +53,7 @@ index 99597258e8e88cd9e2c901c4ac3ff7faeeabee2b..64fef020e9072c33289d15f5937a2fc0
  
          if (stream != null) {
 diff --git a/src/main/java/org/purpurmc/purpur/PurpurConfig.java b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
-index 06fa43b469aea15dc64ce1866d08843327a34965..97baa51c545393f4df63343138e9df61c60a13b9 100644
+index b974b59d421cf97bc9547ea75fe4643d89639bc1..f3beaf7514996bf3e6d3d7fce5bdb526e1891c65 100644
 --- a/src/main/java/org/purpurmc/purpur/PurpurConfig.java
 +++ b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
 @@ -229,7 +229,7 @@ public class PurpurConfig {
