@@ -5,10 +5,10 @@ Subject: [PATCH] No spam logs
 
 
 diff --git a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
-index e76eaa121f73cc56b0e3445eb976546daef87f99..0279d20ab64606a9799fd4f09853a19e433d49c4 100644
+index ac70ab790f73e35fd5ec880f5a884da935d8cd7b..329a4cae36481ec93d6a8712ce4c0450af49eda9 100644
 --- a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
 +++ b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
-@@ -691,7 +691,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+@@ -693,7 +693,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
  
                  if (d10 - d9 > Math.max(100.0D, Math.pow((double) (org.spigotmc.SpigotConfig.movedTooQuicklyMultiplier * (float) i * speed), 2)) && !this.isSingleplayerOwner()) {
                  // CraftBukkit end
@@ -17,7 +17,7 @@ index e76eaa121f73cc56b0e3445eb976546daef87f99..0279d20ab64606a9799fd4f09853a19e
                      this.connection.send(new ClientboundMoveVehiclePacket(entity));
                      return;
                  }
-@@ -727,7 +727,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+@@ -729,7 +729,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
  
                  if (d10 > org.spigotmc.SpigotConfig.movedWronglyThreshold) { // Spigot
                      flag2 = true; // Paper - diff on change, this should be moved wrongly
@@ -26,21 +26,21 @@ index e76eaa121f73cc56b0e3445eb976546daef87f99..0279d20ab64606a9799fd4f09853a19e
                  }
                  Location curPos = this.getCraftPlayer().getLocation(); // Spigot
  
-@@ -1548,7 +1548,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
- 
-                                 if (d10 - d9 > Math.max(f2, Math.pow((double) (org.spigotmc.SpigotConfig.movedTooQuicklyMultiplier * (float) i * speed), 2)) && !this.isSingleplayerOwner()) {
-                                 // CraftBukkit end
--                                    ServerGamePacketListenerImpl.LOGGER.warn("{} moved too quickly! {},{},{}", new Object[]{this.player.getName().getString(), d6, d7, d8});
-+                                    // ServerGamePacketListenerImpl.LOGGER.warn("{} moved too quickly! {},{},{}", new Object[]{this.player.getName().getString(), d6, d7, d8}); // Whitehorse - no spam logs
+@@ -1560,7 +1560,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+                                     io.papermc.paper.event.player.PlayerFailMoveEvent event = fireFailMove(io.papermc.paper.event.player.PlayerFailMoveEvent.FailReason.MOVED_TOO_QUICKLY,
+                                         toX, toY, toZ, toYaw, toPitch, true);
+                                     if (!event.isAllowed()) {
+-                                        if (event.getLogWarning())
++                                        if (false && event.getLogWarning()) // Whitehorse - no spam logs
+                                     ServerGamePacketListenerImpl.LOGGER.warn("{} moved too quickly! {},{},{}", new Object[]{this.player.getName().getString(), d6, d7, d8});
                                      this.teleport(this.player.getX(), this.player.getY(), this.player.getZ(), this.player.getYRot(), this.player.getXRot());
                                      return;
-                                 }
-@@ -1616,7 +1616,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
- 
-                             if (!this.player.isChangingDimension() && d10 > org.spigotmc.SpigotConfig.movedWronglyThreshold && !this.player.isSleeping() && !this.player.gameMode.isCreative() && this.player.gameMode.getGameModeForPlayer() != GameType.SPECTATOR) { // Spigot
+@@ -1635,7 +1635,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+                                     toX, toY, toZ, toYaw, toPitch, true);
+                                 if (!event.isAllowed()) {
                                  flag2 = true; // Paper - diff on change, this should be moved wrongly
--                                ServerGamePacketListenerImpl.LOGGER.warn("{} moved wrongly!, ({})", this.player.getName().getString(), d11); // Purpur
-+                                // ServerGamePacketListenerImpl.LOGGER.warn("{} moved wrongly!, ({})", this.player.getName().getString(), d11); // Purpur // Whitehorse - no spam logs
-                             }
- 
-                             // Paper start - optimise out extra getCubes
+-                                    if (event.getLogWarning())
++                                    if (false && event.getLogWarning()) // Whitehorse - no spam logs
+                                         ServerGamePacketListenerImpl.LOGGER.warn("{} moved wrongly!, ({})", this.player.getName().getString(), d11); // Purpur
+                                 }
+                                 // Paper end

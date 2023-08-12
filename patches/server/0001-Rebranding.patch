@@ -5,7 +5,7 @@ Subject: [PATCH] Rebranding
 
 
 diff --git a/build.gradle.kts b/build.gradle.kts
-index 240394b1d9dd1449674a299aa73fa155be2d3d82..81e392eb4e26aab93767d28d6737950f583cdd3d 100644
+index 139e2b17b899da6f0147bb8b4412e2e54e817be4..0baa56b65ce354cdda65cce73e616838e931d214 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
 @@ -14,7 +14,7 @@ val alsoShade: Configuration by configurations.creating
@@ -27,10 +27,10 @@ index 240394b1d9dd1449674a299aa73fa155be2d3d82..81e392eb4e26aab93767d28d6737950f
              "Specification-Title" to "Bukkit",
              "Specification-Version" to project.version,
 diff --git a/src/main/java/org/bukkit/craftbukkit/CraftServer.java b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-index 81aee45085a29ceb8e36d7948432e2ca688978c0..9656a2064fca2f5eab23db4aff303c669cf1e75f 100644
+index 0a4dfec98470050a0ec9c3693496751fa78fec81..29f16707a5217e9ece3c2a698e840a0e9beb51e9 100644
 --- a/src/main/java/org/bukkit/craftbukkit/CraftServer.java
 +++ b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-@@ -264,7 +264,7 @@ import javax.annotation.Nullable; // Paper
+@@ -265,7 +265,7 @@ import javax.annotation.Nullable; // Paper
  import javax.annotation.Nonnull; // Paper
  
  public final class CraftServer implements Server {
@@ -53,7 +53,7 @@ index 99597258e8e88cd9e2c901c4ac3ff7faeeabee2b..64fef020e9072c33289d15f5937a2fc0
  
          if (stream != null) {
 diff --git a/src/main/java/org/purpurmc/purpur/PurpurConfig.java b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
-index b974b59d421cf97bc9547ea75fe4643d89639bc1..f3beaf7514996bf3e6d3d7fce5bdb526e1891c65 100644
+index f03aba5c25896677d9d37e3fa010590b1ab7e3b6..46e67af306761f1aa9252971ac99b50f98029f3a 100644
 --- a/src/main/java/org/purpurmc/purpur/PurpurConfig.java
 +++ b/src/main/java/org/purpurmc/purpur/PurpurConfig.java
 @@ -229,7 +229,7 @@ public class PurpurConfig {
