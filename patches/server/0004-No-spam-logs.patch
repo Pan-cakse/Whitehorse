@@ -5,7 +5,7 @@ Subject: [PATCH] No spam logs
 
 
 diff --git a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
-index ac70ab790f73e35fd5ec880f5a884da935d8cd7b..329a4cae36481ec93d6a8712ce4c0450af49eda9 100644
+index 9cc3ab8cd3f7ab7f8fbf4d9d14f25ea0bd757eec..da87a529520f5f6b22b82ccfc7f10103cb960d0c 100644
 --- a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
 +++ b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
 @@ -693,7 +693,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
@@ -26,7 +26,7 @@ index ac70ab790f73e35fd5ec880f5a884da935d8cd7b..329a4cae36481ec93d6a8712ce4c0450
                  }
                  Location curPos = this.getCraftPlayer().getLocation(); // Spigot
  
-@@ -1560,7 +1560,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+@@ -1572,7 +1572,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
                                      io.papermc.paper.event.player.PlayerFailMoveEvent event = fireFailMove(io.papermc.paper.event.player.PlayerFailMoveEvent.FailReason.MOVED_TOO_QUICKLY,
                                          toX, toY, toZ, toYaw, toPitch, true);
                                      if (!event.isAllowed()) {
@@ -35,7 +35,7 @@ index ac70ab790f73e35fd5ec880f5a884da935d8cd7b..329a4cae36481ec93d6a8712ce4c0450
                                      ServerGamePacketListenerImpl.LOGGER.warn("{} moved too quickly! {},{},{}", new Object[]{this.player.getName().getString(), d6, d7, d8});
                                      this.teleport(this.player.getX(), this.player.getY(), this.player.getZ(), this.player.getYRot(), this.player.getXRot());
                                      return;
-@@ -1635,7 +1635,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+@@ -1647,7 +1647,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
                                      toX, toY, toZ, toYaw, toPitch, true);
                                  if (!event.isAllowed()) {
                                  flag2 = true; // Paper - diff on change, this should be moved wrongly
