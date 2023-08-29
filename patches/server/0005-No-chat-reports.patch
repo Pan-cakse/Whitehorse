@@ -18,10 +18,10 @@ index 74cf1c043beef03cfd5adf481414a5ee78bef2a6..823e17db76aaa4b2d18dd4137bf25558
  
      public static record Disguised(Component content) implements OutgoingChatMessage {
 diff --git a/src/main/java/net/minecraft/server/level/ServerPlayer.java b/src/main/java/net/minecraft/server/level/ServerPlayer.java
-index 9c729910a39b010bf2123517c0bffc5a8993e6d1..1ea57f54c8cde8282fbaf8680052ee50d5cabacf 100644
+index 0249eeb3937cf48cea13846a7e39b248947e21a4..962070b0667e894f910bd36bed74e5e2878f99d0 100644
 --- a/src/main/java/net/minecraft/server/level/ServerPlayer.java
 +++ b/src/main/java/net/minecraft/server/level/ServerPlayer.java
-@@ -2153,7 +2153,7 @@ public class ServerPlayer extends Player {
+@@ -2156,7 +2156,7 @@ public class ServerPlayer extends Player {
      }
  
      public void sendServerStatus(ServerStatus metadata) {

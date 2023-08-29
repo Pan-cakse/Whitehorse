@@ -22,10 +22,10 @@ index 7e68596e28db88213e9352f798c5a4ce37cc5656..eba865e9a06e6fe0d3dfcbd6ad4a8112
      }
  
 diff --git a/src/main/java/org/bukkit/craftbukkit/inventory/CraftItemStack.java b/src/main/java/org/bukkit/craftbukkit/inventory/CraftItemStack.java
-index f62ef038af2dfe7525e72c8b8e30a3fa9ce2b451..1633325505d3a0f1178a0f6944cf4a73cd80e4c3 100644
+index 0e5abd2a8694b24d4077a602a544e9c2b4c31822..2220e8ce960fefc76deaba9fac58755a82e10a6a 100644
 --- a/src/main/java/org/bukkit/craftbukkit/inventory/CraftItemStack.java
 +++ b/src/main/java/org/bukkit/craftbukkit/inventory/CraftItemStack.java
-@@ -171,7 +171,7 @@ public final class CraftItemStack extends ItemStack {
+@@ -181,7 +181,7 @@ public final class CraftItemStack extends ItemStack {
  
      @Override
      public int getMaxStackSize() {
