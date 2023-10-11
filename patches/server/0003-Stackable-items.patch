@@ -5,10 +5,10 @@ Subject: [PATCH] Stackable items
 
 
 diff --git a/src/main/java/net/minecraft/world/item/ItemStack.java b/src/main/java/net/minecraft/world/item/ItemStack.java
-index 50ea2bc3f785dabc686162c895590b7d7f15a93d..b4a99153db75d816bd5a6e4a79b536176a885fb8 100644
+index 4d99e7db4e9e56caead5ea177b79aaca8e1d20da..c2e7bd75b96828267e2c07f44a8d3794d12e5aab 100644
 --- a/src/main/java/net/minecraft/world/item/ItemStack.java
 +++ b/src/main/java/net/minecraft/world/item/ItemStack.java
-@@ -566,6 +566,12 @@ public final class ItemStack {
+@@ -571,6 +571,12 @@ public final class ItemStack {
      }
  
      public int getMaxStackSize() {

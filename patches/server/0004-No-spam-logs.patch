@@ -5,19 +5,19 @@ Subject: [PATCH] No spam logs
 
 
 diff --git a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
-index 9cc3ab8cd3f7ab7f8fbf4d9d14f25ea0bd757eec..da87a529520f5f6b22b82ccfc7f10103cb960d0c 100644
+index d3827d918ee1f748e936dd3b05b2021a3a0f88c4..be4a5cba9df7c2b8f5471400d04656e0dc05845f 100644
 --- a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
 +++ b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
-@@ -693,7 +693,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+@@ -562,7 +562,7 @@ public class ServerGamePacketListenerImpl extends ServerCommonPacketListenerImpl
  
                  if (d10 - d9 > Math.max(100.0D, Math.pow((double) (org.spigotmc.SpigotConfig.movedTooQuicklyMultiplier * (float) i * speed), 2)) && !this.isSingleplayerOwner()) {
                  // CraftBukkit end
 -                    ServerGamePacketListenerImpl.LOGGER.warn("{} (vehicle of {}) moved too quickly! {},{},{}", new Object[]{entity.getName().getString(), this.player.getName().getString(), d6, d7, d8});
 +                    // ServerGamePacketListenerImpl.LOGGER.warn("{} (vehicle of {}) moved too quickly! {},{},{}", new Object[]{entity.getName().getString(), this.player.getName().getString(), d6, d7, d8}); // Whitehorse - no spam logs
-                     this.connection.send(new ClientboundMoveVehiclePacket(entity));
+                     this.send(new ClientboundMoveVehiclePacket(entity));
                      return;
                  }
-@@ -729,7 +729,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+@@ -598,7 +598,7 @@ public class ServerGamePacketListenerImpl extends ServerCommonPacketListenerImpl
  
                  if (d10 > org.spigotmc.SpigotConfig.movedWronglyThreshold) { // Spigot
                      flag2 = true; // Paper - diff on change, this should be moved wrongly
@@ -26,7 +26,7 @@ index 9cc3ab8cd3f7ab7f8fbf4d9d14f25ea0bd757eec..da87a529520f5f6b22b82ccfc7f10103
                  }
                  Location curPos = this.getCraftPlayer().getLocation(); // Spigot
  
-@@ -1572,7 +1572,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+@@ -1440,7 +1440,7 @@ public class ServerGamePacketListenerImpl extends ServerCommonPacketListenerImpl
                                      io.papermc.paper.event.player.PlayerFailMoveEvent event = fireFailMove(io.papermc.paper.event.player.PlayerFailMoveEvent.FailReason.MOVED_TOO_QUICKLY,
                                          toX, toY, toZ, toYaw, toPitch, true);
                                      if (!event.isAllowed()) {
@@ -35,7 +35,7 @@ index 9cc3ab8cd3f7ab7f8fbf4d9d14f25ea0bd757eec..da87a529520f5f6b22b82ccfc7f10103
                                      ServerGamePacketListenerImpl.LOGGER.warn("{} moved too quickly! {},{},{}", new Object[]{this.player.getName().getString(), d6, d7, d8});
                                      this.teleport(this.player.getX(), this.player.getY(), this.player.getZ(), this.player.getYRot(), this.player.getXRot());
                                      return;
-@@ -1647,7 +1647,7 @@ public class ServerGamePacketListenerImpl implements ServerPlayerConnection, Tic
+@@ -1515,7 +1515,7 @@ public class ServerGamePacketListenerImpl extends ServerCommonPacketListenerImpl
                                      toX, toY, toZ, toYaw, toPitch, true);
                                  if (!event.isAllowed()) {
                                  flag2 = true; // Paper - diff on change, this should be moved wrongly
