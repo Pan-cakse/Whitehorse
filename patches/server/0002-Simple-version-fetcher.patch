@@ -5,15 +5,15 @@ Subject: [PATCH] Simple version fetcher
 
 
 diff --git a/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java b/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
-index 717b1f797d28129a0f5c7c9c7b01691aa4f14317..0f29cf0a6bec8ac7b94153fa213a711e708789ae 100644
+index 33ea5172bb7fe1018bc39acc16963f4998ac52b2..3f262804f1e2e1dbd7ae1b66c317f2a1aa6e2c3f 100644
 --- a/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
 +++ b/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
 @@ -462,7 +462,7 @@ public final class CraftMagicNumbers implements UnsafeValues {
  
      @Override
      public com.destroystokyo.paper.util.VersionFetcher getVersionFetcher() {
--        return new com.destroystokyo.paper.PaperVersionFetcher(); // Purpur - TODO: Pufferfish
-+        return new ru.brominemc.whitehorse.WhitehorseVersionFetcher(); // Purpur // Whitehorse
+-        return new com.destroystokyo.paper.PaperVersionFetcher(); // Pufferfish // Purpur
++        return new ru.brominemc.whitehorse.WhitehorseVersionFetcher(); // Pufferfish // Purpur // Whitehorse
      }
  
      @Override

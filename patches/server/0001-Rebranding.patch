@@ -5,7 +5,7 @@ Subject: [PATCH] Rebranding
 
 
 diff --git a/build.gradle.kts b/build.gradle.kts
-index 9511ffbc88a374c4c7945da79af42433fd532d8c..a8d9ddc9c169da8cd1205a50aa759abf36d86b71 100644
+index e372110a189857056e4fae3cd1d996ce8cb69493..29c15e3e19cc2563a1b28f92c3dd5b19fac16b0a 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
 @@ -14,7 +14,7 @@ val alsoShade: Configuration by configurations.creating
@@ -17,38 +17,38 @@ index 9511ffbc88a374c4c7945da79af42433fd532d8c..a8d9ddc9c169da8cd1205a50aa759abf
      implementation("io.papermc.paper:paper-mojangapi:${project.version}") {
          exclude("io.papermc.paper", "paper-api")
      }
-@@ -80,7 +80,7 @@ tasks.jar {
+@@ -93,7 +93,7 @@ tasks.jar {
          attributes(
              "Main-Class" to "org.bukkit.craftbukkit.Main",
              "Implementation-Title" to "CraftBukkit",
--            "Implementation-Version" to "git-Purpur-$implementationVersion", // Purpur
-+            "Implementation-Version" to "git-Whitehorse-$implementationVersion", // Purpur // Whitehorse
+-            "Implementation-Version" to "git-Purpur-$implementationVersion", // Pufferfish // Purpur
++            "Implementation-Version" to "git-Whitehorse-$implementationVersion", // Pufferfish // Purpur // Whitehorse
              "Implementation-Vendor" to date, // Paper
              "Specification-Title" to "Bukkit",
              "Specification-Version" to project.version,
 diff --git a/src/main/java/org/bukkit/craftbukkit/CraftServer.java b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-index a510aba99702172060916f6b58e4d6f3e066fb73..01b75f26e13aa1cce239dbe6de3c81293e2ed3ed 100644
+index 3c83fc78af6ce549a821c0e030d3dea1790dca47..9e5e2708653e69100c88455e3e6f625246a1bc30 100644
 --- a/src/main/java/org/bukkit/craftbukkit/CraftServer.java
 +++ b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
 @@ -267,7 +267,7 @@ import javax.annotation.Nullable; // Paper
  import javax.annotation.Nonnull; // Paper
  
  public final class CraftServer implements Server {
--    private final String serverName = "Purpur"; // Paper // Purpur
-+    private final String serverName = "Whitehorse"; // Paper // Purpur // Whitehorse
+-    private final String serverName = "Purpur"; // Paper // Pufferfish // Purpur
++    private final String serverName = "Whitehorse"; // Paper // Pufferfish // Purpur // Whitehorse
      private final String serverVersion;
      private final String bukkitVersion = Versioning.getBukkitVersion();
      private final Logger logger = Logger.getLogger("Minecraft");
 diff --git a/src/main/java/org/bukkit/craftbukkit/util/Versioning.java b/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
-index fb87620c742ff7912f5e8ccd2a7930dd605576d9..0a3ac14bd486442c3bdb7840b0aa1805bcc813a1 100644
+index 99597258e8e88cd9e2c901c4ac3ff7faeeabee2b..64fef020e9072c33289d15f5937a2fc04f8de0d3 100644
 --- a/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
 +++ b/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
 @@ -11,7 +11,7 @@ public final class Versioning {
      public static String getBukkitVersion() {
          String result = "Unknown-Version";
  
--        InputStream stream = Bukkit.class.getClassLoader().getResourceAsStream("META-INF/maven/org.purpurmc.purpur/purpur-api/pom.properties"); // Purpur
-+        InputStream stream = Bukkit.class.getClassLoader().getResourceAsStream("META-INF/maven/ru.brominemc.whitehorse/whitehorse-api/pom.properties"); // Purpur // Whitehorse
+-        InputStream stream = Bukkit.class.getClassLoader().getResourceAsStream("META-INF/maven/org.purpurmc.purpur/purpur-api/pom.properties"); // Pufferfish // Purpur
++        InputStream stream = Bukkit.class.getClassLoader().getResourceAsStream("META-INF/maven/ru.brominemc.whitehorse/whitehorse-api/pom.properties"); // Pufferfish // Purpur // Whitehorse
          Properties properties = new Properties();
  
          if (stream != null) {
